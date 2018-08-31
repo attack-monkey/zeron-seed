@@ -1,9 +1,9 @@
-export function aboutTemplate() { return `
-<div id="about-component" class="jumbotron jumbotron-fluid">
+export function aboutTemplate(transition) { return `
+<div id="about-component" class="jumbotron jumbotron-fluid fade-in">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="display-4">About Zeron Seed</h1>
+                <h1 class="display-4">About Zeron Transitions</h1>
                 <p class="lead">Zeron seed is a basic set up that implements:
                     <ul>
                         <li>A background image using font-awesome</li>
@@ -17,7 +17,7 @@ export function aboutTemplate() { return `
                 <hr class="my-4">
                 <p>Head back home...</p>
                 <p class="lead">
-                    <zeron-a class="btn btn-primary btn-lg" href="/" role="button"><i class="fas fa-chevron-left"></i> Back home</zeron-a>
+                    <zeron-t-a data-transition=${transition} class="btn btn-primary btn-lg" href="/" role="button"><i class="fas fa-chevron-left"></i> Back home</zeron-t-a>
                 </p>
             </div>
         </div>
