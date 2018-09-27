@@ -1,10 +1,8 @@
-import { component } from 'zeron/functions/component.function';
-import { $ } from 'zeron/functions/$.function';
-import { homeComponent } from './home/home.component';
-import { debug } from 'zeron/functions/debug.function';
+import { component, $, debug } from 'zeron';
 import { aboutComponent } from './about/about.component';
 import { navbarComponent } from './nav-bar/nav-bar.component';
 import { leafComponent } from './leaf/leaf.component';
+import { homeComponent } from './home/home.component';
 
 export function viewPort() {
 

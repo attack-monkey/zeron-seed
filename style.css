@@ -1,5 +1,8 @@
-body, .jumbotron {
+body {
     background-color: #ccffff;
+}
+.jumbotron {
+    background-color: transparent;
 }
 #navbar-brand {
     color: rgb(116, 184, 22);

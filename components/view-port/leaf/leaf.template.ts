@@ -4,6 +4,7 @@ export function leafTemplate() { return `
         position: absolute;
         bottom: 0px;
         width: 100%;
+        z-index: -1;
     ">
     <div>
         <i class="fas fa-seedling" style="
