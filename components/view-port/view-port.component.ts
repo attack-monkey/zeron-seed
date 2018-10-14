@@ -1,4 +1,4 @@
-import { component, $, debug } from 'zeron';
+import { component, $, debug, urlSegments, getState } from 'zeron';
 import { aboutComponent } from './about/about.component';
 import { navbarComponent } from './nav-bar/nav-bar.component';
 import { leafComponent } from './leaf/leaf.component';
@@ -9,36 +9,43 @@ export function viewPort() {
     // load background
 
     /*
-     * The leaf component loads the background image + also loads an entry socket for the application
+     * The leaf component loads the background image into <div id="#leaf-component></div>
      */
 
-        leafComponent();
+    leafComponent();
 
     // load foreground sockets
 
     /*
-     * The navbar and router are then loaded into the entry-socket
+     * The following template is loaded into <div id="#entry-component></div>
      */
 
-        component($('#entry-socket'), `
-            <div id="nav-bar-socket"></div>
-            <div id="main-router-socket"></div>
-        `);
+    component(
+        'entry-component', `
+            <div id="nav-bar-component"></div>
+            <div id="main-router-component" class="fade-in"></div>
+        `, 
+        {
+            // After the template has loaded, then load child components...
+            next: () => { loadChildComponents(); 
+        }
+    });
+}
 
+function loadChildComponents() {
     // load child components
 
-        // navbar
-        navbarComponent();
+    // navbar
+    navbarComponent();
 
-        // routes
-
-        /*
-         * Note the use of debug logging to notify the developer of routes
-         */
-
-        debug().log('Main Router - Loading Routes...');
-        debug().log('- homeComponent()');
-        homeComponent();
-        debug().log('- aboutComponent()');
-        aboutComponent();
+    // router
+    const route = urlSegments();
+    switch(route[1]) {
+        case '' : 
+            homeComponent();
+            break;
+        case 'about': 
+            aboutComponent();
+            break;
+    } 
 }

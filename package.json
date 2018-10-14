@@ -12,10 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "@reactivex/rxjs": "^6.2.2",
-    "bootstrap": "^4.0.0-beta.3",
+    "bootstrap": "^4.1.3",
     "rxjs": "^6.3.1",
     "rxjs-compat": "^6.2.2",
-    "zeron": "^2.2.0"
+    "zeron": "^3.0.0"
   },
   "devDependencies": {
     "typescript": "^3.0.1"

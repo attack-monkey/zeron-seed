@@ -1,6 +1,5 @@
 export function leafTemplate() { return `
-<div id="entry-socket"></div>
-<div id="leaf-component" style="
+<div style="
         position: absolute;
         bottom: 0px;
         width: 100%;

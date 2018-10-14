@@ -1,19 +1,16 @@
 import { component } from "zeron/functions/component.function";
-import { $ } from "zeron/functions/$.function";
 import { urlSegments } from "zeron/functions/url-segments.function";
 import { navbarTemplate } from "./nav-bar.template";
-import { pushStateTransitions } from "../../../node_modules/zeron/functions/push-state-transitions.function";
 
 export function navbarComponent() {
-    component($('#nav-bar-socket'),
+    const transition = JSON.stringify({
+        type: 'fade',
+        classTarget: 'main-router-component',
+        socketTarget: 'entry-component'
+    });
+    component('nav-bar-component',
         navbarTemplate(
-            urlSegments()[1], JSON.stringify({
-                type: 'fade',
-                out: {
-                    component: '#main-router-socket'
-                }
-            })
+            urlSegments()[1], transition
         )
     );
-    pushStateTransitions('nav-bar-component');
 }
